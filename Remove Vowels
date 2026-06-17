@@ -1,0 +1,8 @@
+text = "have a nice day"
+vowels = "aeiouAEIOU"
+result = ""
+for char in text:
+    if char not in vowels:
+        result = result + char
+
+print(result)
