@@ -1,0 +1,22 @@
+lands = [10, 20, 5, 25]
+
+total_production = sum(lands)
+
+if total_production % 2 != 0:
+    print("Cannot divide equally")
+else:
+    half = total_production // 2
+    current_sum = 0
+    split_index = -1
+    
+    for i in range(len(lands)):
+        current_sum = current_sum + lands[i]
+        if current_sum == half:
+            split_index = i
+            break
+            
+    if split_index != -1:
+        print("Son 1 gets lands:", lands[:split_index + 1])
+        print("Son 2 gets lands:", lands[split_index + 1:])
+    else:
+        print("Cannot divide equally without cutting a piece")
