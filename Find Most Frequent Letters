@@ -1,0 +1,18 @@
+def find_most_frequent(lines):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+    for line in lines:
+        max_count = 0
+        for char in alphabet:
+            char_count = line.count(char)
+            if char_count > max_count:
+                max_count = char_count
+        if max_count == 0:
+            print("")
+            continue
+        result = ""
+        for char in alphabet:
+            if line.count(char) == max_count:
+                result += char
+        print(result)
+sample_lines = ["aaBBb", "AabcA", "xyz XYZ"]
+find_most_frequent(sample_lines)
