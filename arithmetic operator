@@ -1,0 +1,6 @@
+a = 5
+b = 3
+sum_without_carry = a ^ b
+carry = (a & b) << 1
+result = sum_without_carry ^ carry
+print(f"The result is: {result}")
