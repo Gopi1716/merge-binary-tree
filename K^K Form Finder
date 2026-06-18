@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.close();
+        if (n <= 0) {
+            System.out.println("No");
+            return;
+        }
+        boolean[] dp = new boolean[n + 1];
+        for (int i = 1; i <= n; i++) {
+           
+                       boolean isTargetForm = false;
+            for (int k = 1; ; k++) {
+                double val = Math.pow(k, k);
+                if (val == i) {
+                    isTargetForm = true;
+                    break;
+                }
+                if (val > i) {
+                    break;
+                }
+            }
+            if (isTargetForm) {
+                dp[i] = true;
+                continue;
+            }
+            int temp = i;
+            while (temp > 0) {
+                int d = temp % 10; 
+                temp /= 10;        
+                if (d > 0 && i - d * d >= 0) {
+                    if (dp[i - d * d]) {
+                        dp[i] = true;
+                        break;
+                    }
+                }
+            }
+        }
+        if (dp[n]) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
